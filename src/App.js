@@ -10,7 +10,7 @@ import Search from './pages/search/Search'
 import ThemeSelector from './components/ThemeSelector'
 
 
-import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useTheme } from './hooks/useTheme'
 
 function App() {
@@ -20,20 +20,12 @@ function App() {
 			<BrowserRouter>
 				<Navbar/>
 				<ThemeSelector/>
-				<Switch>
-					<Route exact path='/'>
-						<Home/>
-					</Route>
-					<Route path='/create'>
-						<Create/>
-					</Route>
-					<Route path='/recipes/:id'>
-						<Recepie/>
-					</Route>
-					<Route path='/search'>
-						<Search/>
-					</Route>
-				</Switch>
+				<Routes>
+					<Route path='/' element={ <Home/> }/>
+					<Route path='/create' element={ <Create/> }/>
+					<Route path='/recipes/:id' element={ <Recepie/> }/>
+					<Route path='/search' element={ <Search/> }/>
+				</Routes>
 			</BrowserRouter>
 		</div>
 	);

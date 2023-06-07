@@ -1,17 +1,17 @@
 import './Searchbar.css'
 
 import {  useRef, useState } from "react"
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Searchbar () {
     const [query, setQuery] = useState('')
-    const history = useHistory()
+    const navigate = useNavigate()
     const searchParam = useRef(null)
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        history.push(`/search?q=${query}`)
+        navigate(`/search?q=${query}`)
         searchParam.current.value = '' //Clears the input field
     }
 
